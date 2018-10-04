@@ -2,7 +2,7 @@
 '''create by MAVERIKGOLD'''
 
 
-''' da aggiungere future per creare custom attack ''' 
+
 import smtplib
 from os import system
 from time import sleep
