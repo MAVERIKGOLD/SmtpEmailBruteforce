@@ -41,7 +41,7 @@ def ChoiseSMTP():
         print 'your choise is : ARUBA SMTP', semtp_custom_address, ' port : ' , semtp_custom_port
 
     if option == 3:
-        print 'your choise is : ARUBA'
+        print 'your choise is : OVH'
         semtp_custom_address = 'SSL0.OVH.NET'
         semtp_custom_port = '465'
         print 'your choise is : ARUBA SMTP', semtp_custom_address, ' port : ' , semtp_custom_port
